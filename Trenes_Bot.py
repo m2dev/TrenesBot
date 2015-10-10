@@ -1,15 +1,13 @@
-# -*- coding: utf-8 -*-
-import requests #Libreria para hacer request a API
+import requests 
 import json
-import telebot # Librería de la API del bot.
-from telebot import types # Tipos para la API del bot.
-import time # Librería para hacer que el programa que controla el bot no se acabe.
-from wand.image import Image
+import telebot 
+from telebot import types
+import time 
 
-TOKEN = '112090512:AAFIcT-bEUgl6Bsw1kC20EgqSuDvRbhynR8' # Nuestro tokken del bot (el que @BotFather nos dió).
-API_URL = 'http://trenes.mininterior.gov.ar/apps/api_tiempos_temp.php' # URL del web service, de donde obtenemos los datos
+TOKEN = '112090512:AAFIcT-bEUgl6Bsw1kC20EgqSuDvRbhynR8' 
+API_URL = 'http://trenes.mininterior.gov.ar/apps/api_tiempos_temp.php' 
 
-bot = telebot.TeleBot(TOKEN) # Creamos el objeto de nuestro bot.
+bot = telebot.TeleBot(TOKEN) 
  
 @bot.message_handler(commands=['start'])
 def start(m):
@@ -54,19 +52,5 @@ def tarifaRosario(m):
     bot.send_message(m.chat.id, "Esta es la tarifa Buenos Aires - Rosario")
     bot.send_photo(m.chat.id, photo)
 
-    
-# def listener(messages): # Con esto, estamos definiendo una función llamada 'listener', que recibe como parámetro un dato llamado 'messages'.
-#     for m in messages: # Por cada dato 'm' en el dato 'messages'
-#         cid = m.chat.id # Almacenaremos el ID de la conversación.
-#         print "[" + str(cid) + "]: " + m.text # Y haremos que imprima algo parecido a esto -> [52033876]: /start
-     
-        
-#         if m.text == "/tarifaRosario":
-            
-            
-#         if m.text != "/trendelacosta" and  m.text != "/tarifaRosario" and m.text != "/sanmartin" and  m.text != "/roca" and  m.text != "/mitre" and  m.text != "/sarmiento" and  m.text != "/start" and m.text != "/about" and m.text != "/help":
-#             bot.send_message(cid, "El comando no es valido :( . Podes ingresar /trendelacosta, /sanmartin, /roca, /mitre, /sarmiento, /buenosairesrosarioTarifa")
  
-# bot.set_update_listener(listener) # Así, le decimos al bot que utilice como función escuchadora nuestra función 'listener' declarada arriba.
- 
-bot.polling(none_stop=True) # Con esto, le decimos al bot que siga funcionando incluso si encuentra algún fallo.
+bot.polling(none_stop=True)
