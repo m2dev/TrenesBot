@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import requests 
 import json
 import telebot 
@@ -52,5 +53,4 @@ def tarifaRosario(m):
     bot.send_message(m.chat.id, "Esta es la tarifa Buenos Aires - Rosario")
     bot.send_photo(m.chat.id, photo)
 
- 
 bot.polling(none_stop=True)
